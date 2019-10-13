@@ -1,0 +1,7 @@
+#! /bin/sh
+
+# Download Atom
+wget -O /tmp/atom.deb https://atom.io/download/deb
+
+# Install Atom
+apt -f -y /tmp/atom.deb
