@@ -1,0 +1,43 @@
+#! /bin/sh
+
+# Halt on error
+set -e
+
+# Backup the previous configuration
+dpkg-divert --add --package mylinux-base --rename --divert /etc/issue.backup /etc/issue
+dpkg-divert --add --package mylinux-base --rename --divert /etc/motd.backup /etc/motd
+dpkg-divert --add --package mylinux-base --rename --divert /etc/bash.bashrc.backup /etc/bash.bashrc
+dpkg-divert --add --package mylinux-base --rename --divert /etc/skel/.bashrc.backup /etc/skel/.bashrc
+
+# Install our configuration
+ln -sfv /etc/motd.mylinux /etc/motd
+ln -sfv /etc/bash.bashrc.mylinux /etc/bash.bashrc
+
+# Configure the banner
+cp -fv /etc/issue.backup /etc/issue.mylinux
+echo "" >> /etc/issue.mylinux
+echo "IPv4 address : \4" >> /etc/issue.mylinux
+echo "IPv6 address : \6" >> /etc/issue.mylinux
+echo "" >> /etc/issue.mylinux
+ln -sfv /etc/issue.mylinux /etc/issue
+
+# Remove root's .bashrc files
+if [ -e /root/.bashrc ] && [ ! -e /root/.bashrc.backup ]; then
+	mv -fv /root/.bashrc /root/.bashrc.backup
+fi
+
+# Remove local users' .bashrc files
+for USERHOME in $(ls /home); do
+	if [ "$USERHOME" = 'lost+found' ]; then continue; fi
+	if [ -e /home/$USERHOME/.bashrc ] && [ ! -e /home/$USERHOME/.bashrc.backup ]; then
+		mv -fv /home/$USERHOME/.bashrc /home/$USERHOME/.bashrc.backup
+	fi
+done
+unset USERHOME
+
+# Add the directory for local BASH configurations
+mkdir -v /etc/bashrc.d || true
+
+# Active and restart the NTP client service
+timedatectl set-ntp true
+systemctl restart systemd-timesyncd.service

@@ -1,0 +1,32 @@
+#! /bin/sh
+
+# Halt on error
+set -e
+
+# Remove our configuration
+[ -L /etc/issue ] && rm -fv /etc/issue
+[ -L /etc/motd ] && rm -fv /etc/motd
+[ -L /etc/bash.bashrc ] && rm -fv /etc/bash.bashrc
+
+# Restore the previous configuration
+dpkg-divert --remove --package mylinux-base --rename --divert /etc/issue.backup /etc/issue
+dpkg-divert --remove --package mylinux-base --rename --divert /etc/motd.backup /etc/motd
+dpkg-divert --remove --package mylinux-base --rename --divert /etc/bash.bashrc.backup /etc/bash.bashrc
+dpkg-divert --remove --package mylinux-base --rename --divert /etc/skel/.bashrc.backup /etc/skel/.bashrc
+
+# Restore root's .bashrc files
+if [ ! -e /root/.bashrc ] && [ -e /root/.bashrc.backup ]; then
+	mv -fv /root/.bashrc.backup /root/.bashrc
+fi
+
+# Restore local users' .bashrc files
+for USERHOME in $(ls /home); do
+	if [ "$USERHOME" = 'lost+found' ]; then continue; fi
+	if [ ! -e /home/$USERHOME/.bashrc ] && [ -e /home/$USERHOME/.bashrc.backup ]; then
+		mv -fv /home/$USERHOME/.bashrc.backup /home/$USERHOME/.bashrc
+	fi
+done
+unset USERHOME
+
+# Delete the directory for local BASH configurations
+rmdir -v /etc/bashrc.d || true

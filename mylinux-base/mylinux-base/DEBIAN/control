@@ -1,0 +1,22 @@
+Package: mylinux-base
+Version: 1.0
+Section: admin
+Priority: optional
+Architecture: all
+Depends: base-files, bash, nano, sudo, systemd
+Maintainer: Michaël Roy <microygh@gmail.com>
+Description: Custom Linux configuration
+ - Banners :
+  - Remove the message of the day
+  - Display the IP addresses of the host
+ - Bash :
+  - Fancy prompt
+  - Aliases
+  - Options
+  - Completion
+  - Local configuration folder (/etc/bashrc.d)
+  - Keep SSH_TTY environment variable in sudo (for the fancy prompt)
+ - Nano :
+  - Syntax highlighting for conf files
+ - Systemd :
+  - Synchronize the local time with the NTP servers in France
