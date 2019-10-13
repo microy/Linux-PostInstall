@@ -1,7 +1,7 @@
 # Linux-PostInstall
-Post installation package for Linux
+Post installation packages for Linux
 
-## MyLinux-base
+## mylinux-base
 Customize the base Linux system :
 - Banners :
 	- Display the IP addresses of the host
@@ -16,4 +16,4 @@ Customize the base Linux system :
 - Nano :
 	- Syntax highlighting for conf files
 - Systemd :
-	- Synchronize the local time with the french NTP servers
+	- Synchronize the local time with the NTP servers in France
