@@ -1,7 +1,4 @@
 #! /bin/sh
 
-# Download Atom
-wget -O /tmp/atom.deb https://atom.io/download/deb
-
-# Install Atom
-apt -f -y /tmp/atom.deb
+# Remove unnecessary packages
+apt purge --autoremove timeshift gnome-online-accounts gnome-orca gnome-accessibility-themes mintwelcome
