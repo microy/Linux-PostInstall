@@ -1,0 +1,2 @@
+# Keep proxy environment variables
+Defaults	env_keep += "http_proxy https_proxy HTTP_PROXY HTTPS_PROXY"

@@ -1,0 +1,16 @@
+#! /bin/sh
+
+# Halt on error
+set -e
+
+# Configure system banners
+#[ -L /etc/issue ] && ln -sfv /etc/issue.mdebian-iut /etc/issue
+#dpkg-divert --add --package mdebian-iut-base --rename --divert /etc/issue.net.backup /etc/issue.net
+#ln -sfv /etc/issue.net.mdebian-iut /etc/issue.net
+
+# Disable the CNTLM service
+systemctl stop cntlm
+systemctl disable cntlm
+
+# Restart the NTP client service
+systemctl restart systemd-timesyncd.service
