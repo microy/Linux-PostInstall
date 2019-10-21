@@ -4,9 +4,9 @@
 set -e
 
 # Configure system banners
-#[ -L /etc/issue ] && ln -sfv /etc/issue.mdebian-iut /etc/issue
-#dpkg-divert --add --package mdebian-iut-base --rename --divert /etc/issue.net.backup /etc/issue.net
-#ln -sfv /etc/issue.net.mdebian-iut /etc/issue.net
+dpkg-divert --add --package mylinux-iut --rename --divert /etc/issue.net.backup /etc/issue.net
+cat /etc/issue.net.backup >> /etc/issue.net.mylinux-iut
+ln -sfv /etc/issue.net.mylinux-iut /etc/issue.net
 
 # Disable the CNTLM service
 systemctl stop cntlm
