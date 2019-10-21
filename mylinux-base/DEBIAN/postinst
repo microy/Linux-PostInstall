@@ -14,8 +14,7 @@ ln -sfv /etc/motd.mylinux /etc/motd
 ln -sfv /etc/bash.bashrc.mylinux /etc/bash.bashrc
 
 # Configure the banner
-cat /etc/issue.backup /etc/issue.mylinux | tee /etc/issue.mylinux
-ln -sfv /etc/issue.mylinux /etc/issue
+/usr/sbin/mylinux-update-banner
 
 # Remove root's .bashrc files
 if [ -e /root/.bashrc ] && [ ! -e /root/.bashrc.backup ]; then

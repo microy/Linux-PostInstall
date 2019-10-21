@@ -1,0 +1,10 @@
+#! /bin/sh
+
+# Configure the banner
+cp -fv /etc/issue.backup /etc/issue.mylinux
+cat >> /etc/issue.mylinux <<EOF
+IPv4 address : \4
+IPv6 address : \6
+
+EOF
+ln -sfv /etc/issue.mylinux /etc/issue

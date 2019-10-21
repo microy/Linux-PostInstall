@@ -1,0 +1,8 @@
+#! /bin/sh
+
+# Configure the banner
+/usr/sbin/mylinux-update-banner
+sed -i '1 i IUT Réseaux et Télécoms Auxerre' /etc/issue.mylinux
+cp -fv /etc/issue.net.backup /etc/issue.net.mylinux
+sed -i '1 i IUT Reseaux et Telecoms Auxerre' /etc/issue.net.mylinux
+ln -sfv /etc/issue.net.mylinux /etc/issue.net

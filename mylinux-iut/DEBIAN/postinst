@@ -5,8 +5,8 @@ set -e
 
 # Configure system banners
 dpkg-divert --add --package mylinux-iut --rename --divert /etc/issue.net.backup /etc/issue.net
-cat /etc/issue.net.backup >> /etc/issue.net.mylinux-iut
-ln -sfv /etc/issue.net.mylinux-iut /etc/issue.net
+/usr/sbin/mylinux-iut-update-banner
+
 
 # Disable the CNTLM service
 systemctl stop cntlm

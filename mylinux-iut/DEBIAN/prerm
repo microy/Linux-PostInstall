@@ -6,3 +6,4 @@ set -e
 # Remove our configuration
 [ -L /etc/issue.net ] && rm -fv /etc/issue.net
 dpkg-divert --remove --package mylinux-iut --rename --divert /etc/issue.net.backup /etc/issue.net
+/usr/sbin/mylinux-update-banner
