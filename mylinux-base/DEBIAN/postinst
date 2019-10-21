@@ -14,12 +14,9 @@ ln -sfv /etc/motd.mylinux /etc/motd
 ln -sfv /etc/bash.bashrc.mylinux /etc/bash.bashrc
 
 # Configure the banner
-cp -fv /etc/issue.backup /etc/issue.mylinux
-echo "" >> /etc/issue.mylinux
-echo "IPv4 address : \4" >> /etc/issue.mylinux
-echo "IPv6 address : \6" >> /etc/issue.mylinux
-echo "" >> /etc/issue.mylinux
-ln -sfv /etc/issue.mylinux /etc/issue
+#ISSUE=$(cat /etc/issue.net.backup)
+#sed -i "1i$ISSUE" /etc/issue.mylinux
+#ln -sfv /etc/issue.mylinux /etc/issue
 
 # Remove root's .bashrc files
 if [ -e /root/.bashrc ] && [ ! -e /root/.bashrc.backup ]; then
