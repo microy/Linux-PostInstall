@@ -69,7 +69,6 @@ alias dir='dir --color=auto'
 alias grep='grep --color=auto'
 alias tree='tree -C --dirsfirst'
 alias ssh-nokey='ssh -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null'
-alias apt-backports='apt -t stretch-backports'
 alias du='du -h --max-depth=1'
 alias df='df -h'
 
