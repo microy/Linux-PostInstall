@@ -1,9 +1,0 @@
-Package: mylinux-minicom
-Version: 1.0
-Section: admin
-Priority: optional
-Architecture: all
-Depends: minicom
-Maintainer: Michaël Roy <microygh@gmail.com>
-Description: Custom configuration for minicom
-  - 9600bps 8N1 on /dev/ttyS0
