@@ -4,10 +4,10 @@
 set -e
 
 # Backup the previous configuration
-dpkg-divert --add --package mylinux-base --rename --divert /etc/issue.backup /etc/issue
-dpkg-divert --add --package mylinux-base --rename --divert /etc/motd.backup /etc/motd
-dpkg-divert --add --package mylinux-base --rename --divert /etc/bash.bashrc.backup /etc/bash.bashrc
-dpkg-divert --add --package mylinux-base --rename --divert /etc/skel/.bashrc.backup /etc/skel/.bashrc
+dpkg-divert --add --package mylinux-base --rename /etc/issue.backup --divert /etc/issue
+dpkg-divert --add --package mylinux-base --rename /etc/motd.backup --divert /etc/motd
+dpkg-divert --add --package mylinux-base --rename /etc/bash.bashrc.backup --divert /etc/bash.bashrc
+dpkg-divert --add --package mylinux-base --rename /etc/skel/.bashrc.backup --divert /etc/skel/.bashrc
 
 # Install our configuration
 ln -sfv /etc/motd.mylinux /etc/motd

@@ -9,10 +9,10 @@ set -e
 [ -L /etc/bash.bashrc ] && rm -fv /etc/bash.bashrc
 
 # Restore the previous configuration
-dpkg-divert --remove --package mylinux-base --rename --divert /etc/issue.backup /etc/issue
-dpkg-divert --remove --package mylinux-base --rename --divert /etc/motd.backup /etc/motd
-dpkg-divert --remove --package mylinux-base --rename --divert /etc/bash.bashrc.backup /etc/bash.bashrc
-dpkg-divert --remove --package mylinux-base --rename --divert /etc/skel/.bashrc.backup /etc/skel/.bashrc
+dpkg-divert --remove --package mylinux-base --rename /etc/issue.backup --divert /etc/issue
+dpkg-divert --remove --package mylinux-base --rename /etc/motd.backup --divert /etc/motd
+dpkg-divert --remove --package mylinux-base --rename /etc/bash.bashrc.backup --divert /etc/bash.bashrc
+dpkg-divert --remove --package mylinux-base --rename /etc/skel/.bashrc.backup --divert /etc/skel/.bashrc
 
 # Restore root's .bashrc files
 if [ ! -e /root/.bashrc ] && [ -e /root/.bashrc.backup ]; then
