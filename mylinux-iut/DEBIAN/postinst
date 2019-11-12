@@ -4,7 +4,7 @@
 set -e
 
 # Configure system banners
-dpkg-divert --add --package mylinux-iut --rename /etc/issue.net.backup --divert /etc/issue.net
+dpkg-divert --add --package mylinux-iut --divert /etc/issue.net.backup --rename /etc/issue.net
 /usr/sbin/mylinux-iut-update-banner
 
 
