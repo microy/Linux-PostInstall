@@ -1,0 +1,8 @@
+#! /bin/sh
+
+# Halt on error
+set -e
+
+# Remove our configuration
+[ -L /etc/apt/sources.list ] && rm -fv /etc/apt/sources.list
+dpkg-divert --remove --package mylinux-debian --divert /etc/apt/sources.list.backup --rename /etc/apt/sources.list

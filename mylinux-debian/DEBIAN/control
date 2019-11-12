@@ -1,0 +1,8 @@
+Package: mylinux-debian
+Version: 1.0
+Section: admin
+Priority: optional
+Architecture: all
+Depends: apt
+Maintainer: Michaël Roy <microygh@gmail.com>
+Description: Custom configuration for Debian

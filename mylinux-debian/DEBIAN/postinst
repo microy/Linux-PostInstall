@@ -1,0 +1,8 @@
+#! /bin/sh
+
+# Halt on error
+set -e
+
+# Configure the package sources
+dpkg-divert --add --package mylinux-debian --divert /etc/apt/sources.list.backup --rename /etc/apt/sources.list
+ln -sfv /etc/apt/sources.list.mylinux /etc/apt/sources.list
