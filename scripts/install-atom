@@ -4,4 +4,4 @@
 wget -O /tmp/atom.deb https://atom.io/download/deb
 
 # Install Atom
-apt -f -y /tmp/atom.deb
+apt install -f -y /tmp/atom.deb
