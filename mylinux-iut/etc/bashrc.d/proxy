@@ -10,7 +10,7 @@ function proxy-start
 	echo -n "Password: "
 	read -s proxy_password
 	# Get the gateway
-	gateway=$(ip route | awk '/default/ { print $3 }')
+	gateway=$(/sbin/ip route | awk '/default/ { print $3 }')
 	# Start CNTLM service
 	echo "Launch the proxy (may need sudo authentication)..."
 	sudo cntlm -u $proxy_user -p $proxy_password -d ADAUX ${gateway}:8080
