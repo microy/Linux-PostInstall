@@ -1,7 +1,7 @@
 #! /bin/sh
 
 # Install Atom
-apt -f -y minicom
+apt install -f -y minicom
 
 # Configure minicom
 cat > /etc/minicom/minirc.dfl <<EOF
