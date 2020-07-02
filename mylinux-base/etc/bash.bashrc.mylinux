@@ -20,19 +20,19 @@ shopt -s checkwinsize
 
 # Highlight the user name when logged in as root.
 if [ "${USER}" = "root" ];
-then user_style="\[\e[31m\]";
-else user_style="\[\e[32m\]";
+then user_style="\[\e[1;31m\]";
+else user_style="\[\e[1;32m\]";
 fi;
 
 # Highlight the hostname when connected via SSH.
 if [ -n "${SSH_TTY}" ];
-then host_style="\[\e[31m\]";
-else host_style="\[\e[32m\]";
+then host_style="\[\e[1;31m\]";
+else host_style="\[\e[1;32m\]";
 fi;
 
 # Fancy prompt
 reset_style="\[\e[m\]";
-path_style="\[\e[36m\]";
+path_style="\[\e[1;36m\]";
 PS1="\n[ ";                           # [
 PS1+="${user_style}\u${reset_style}"; # User
 PS1+=" @ ";                           # @
