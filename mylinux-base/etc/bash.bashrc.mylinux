@@ -72,6 +72,10 @@ alias ssh-nokey='ssh -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null'
 alias du='du -h --max-depth=1'
 alias df='df -h'
 
+# Colored IP command
+export COLORFGBG=';0'
+alias ip='ip -color'
+
 # Import local configurations from /etc/bashrc.d
 if [ -d /etc/bashrc.d ]; then
 	for bashrc_file in /etc/bashrc.d/* ; do
