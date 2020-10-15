@@ -1,0 +1,80 @@
+#! /bin/sh
+
+# Halt on error
+set-e
+
+# Setup repositories
+mv /etc/apk/repositories /etc/apk/repositories.backup
+cat >> /etc/apk/repositories << EOF
+http://dl-cdn.alpinelinux.org/alpine/latest-stable/main
+http://dl-cdn.alpinelinux.org/alpine/latest-stable/community
+EOF
+
+# Update packages
+apk update
+apk upgrade --available
+
+# Setup banner
+: > /etc/motd
+mv /etc/issue /etc/issue.backup
+cat >> /etc/issue << EOF
+
+IUT Réseaux et Télécommunications Auxerre
+Welcome to Alpine Linux
+
+EOF
+cat >> /etc/ssh/sshd_config << EOF
+
+# Banner
+Banner /etc/issue
+EOF
+
+# Setup boot
+cp /boot/extlinux.conf /boot/extlinux.conf.backup
+sed -i 's/DEFAULT .*/DEFAULT virt/' /boot/extlinux.conf
+sed -i 's/TIMEOUT .*/TIMEOUT 0/' /boot/extlinux.conf
+
+# Setup shell profile
+cat >> /etc/profile.d/mylinux.sh << EOF
+#
+# Color prompt
+#
+
+# Highlight the user name when logged in as root.
+if [ "${USER}" = "root" ];
+	then user_style="\[\e[1;31m\]";
+	else user_style="\[\e[1;32m\]";
+fi;
+
+# Highlight the hostname when connected via SSH.
+if [ -n "${SSH_TTY}" ];
+	then host_style="\[\e[1;31m\]";
+	else host_style="\[\e[1;32m\]";
+fi;
+
+# Fancy prompt
+reset_style="\[\e[m\]";
+path_style="\[\e[1;36m\]";
+PS1="\n[ ${user_style}\u${reset_style} @ ${host_style}\h${reset_style} : ${path_style}\w${reset_style} ]\n\\$ "
+unset user_style host_style reset_style path_style
+
+#
+# Aliases
+#
+
+alias ls='ls -h --color=auto --group-directories-first'
+alias ll='ls -lv'
+alias la='ll -A'
+alias rm='rm -iv'
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias grep='grep --color=auto'
+alias tree='tree -C --dirsfirst'
+alias ssh-nokey='ssh -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null'
+alias du='du -h --max-depth=1'
+alias df='df -h'
+
+# Colored IP command
+export COLORFGBG=';0'
+alias ip='ip -color'
+EOF
