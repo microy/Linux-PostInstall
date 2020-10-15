@@ -1,2 +1,2 @@
 # Keep SSH_TTY environment variable
-Defaults	env_keep += "SSH_TTY"
+Defaults env_keep += "SSH_TTY"
