@@ -1,4 +1,12 @@
 #! /bin/sh
 
 # Remove unnecessary packages
-apt purge --autoremove timeshift gnome-online-accounts gnome-orca gnome-accessibility-themes mintwelcome
+#apt purge --autoremove timeshift gnome-online-accounts gnome-orca gnome-accessibility-themes mintwelcome
+
+# Remove unnecessary fonts
+apt autoremove --purge fonts-beng fonts-beng-extra fonts-deva fonts-deva-extra fonts-droid-fallback fonts-gargi fonts-gubbi fonts-gujr fonts-gujr-extra fonts-guru fonts-guru-extra fonts-indic fonts-kacst fonts-kacst-one fonts-kalapi fonts-khmeros-core fonts-knda fonts-lao fonts-lklug-sinhala fonts-lohit-beng-assamese fonts-lohit-beng-bengali fonts-lohit-deva fonts-lohit-gujr fonts-lohit-guru fonts-lohit-knda fonts-lohit-mlym fonts-lohit-orya fonts-lohit-taml-classical fonts-lohit-taml fonts-lohit-telu fonts-mlym fonts-nakula fonts-navilu fonts-noto-cjk fonts-noto-color-emoji fonts-noto-mono fonts-orya fonts-orya-extra fonts-pagul fonts-sahadeva fonts-samyak-deva fonts-samyak-gujr fonts-samyak-mlym fonts-samyak-taml fonts-sarai fonts-sil-abyssinica fonts-sil-padauk fonts-smc fonts-sil-abyssinica fonts-sil-padauk fonts-smc-anjalioldlipi fonts-smc-chilanka fonts-smc-dyuthi fonts-smc-gayathri fonts-smc-karumbi fonts-smc-keraleeyam fonts-smc-manjari fonts-smc-meera fonts-smc-rachana fonts-smc-raghumalayalamsans fonts-smc-suruma fonts-smc-uroob fonts-taml fonts-telu fonts-telu-extra fonts-telu fonts-thai-tlwg fonts-tibetan-machine fonts-tlwg-garuda-ttf fonts-tlwg-garuda fonts-tlwg-kinnari-ttf fonts-tlwg-kinnari fonts-tlwg-laksaman-ttf fonts-tlwg-laksaman fonts-tlwg-loma-ttf fonts-tlwg-loma fonts-tlwg-mono-ttf fonts-tlwg-mono fonts-tlwg-norasi-ttf fonts-tlwg-norasi fonts-tlwg-purisa-ttf fonts-tlwg-purisa fonts-tlwg-sawasdee-ttf fonts-tlwg-sawasdee fonts-tlwg-typewriter-ttf fonts-tlwg-typewriter fonts-tlwg-typist-ttf fonts-tlwg-typist fonts-tlwg-typo-ttf fonts-tlwg-typo fonts-tlwg-umpush-ttf fonts-tlwg-umpush fonts-tlwg-waree-ttf fonts-tlwg-waree fonts-yrsa-rasa
+dpkg-reconfigure fontconfig
+fc-cache -f -v
+
+# Remove unnecessary software
+apt autoremove --purge timeshift redshift hexchat onboard gnome-calendar simple-scan pix gnome-logs gnome-font-viewer gucharmap nvidia-prime-applet gnome-orca gnome-power-manager gnome-accessibility-themes gnote transmission-common thunderbird celluloid rhythmbox-data warpinator avahi-daemon drawing
