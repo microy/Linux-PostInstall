@@ -1,9 +1,9 @@
 Package: mylinux-base
-Version: 1.4
+Version: 1.5
 Section: admin
 Priority: optional
 Architecture: all
-Depends: base-files, bash, nano, sudo, systemd
+Depends: base-files, bash, nano, sudo, systemd, systemd-timesyncd
 Maintainer: Michaël Roy <microygh@gmail.com>
 Description: Custom Linux configuration
  - Banners :
