@@ -19,4 +19,4 @@ Description: Custom Linux configuration
  - Nano :
   - Syntax highlighting for conf files
  - Chrony :
-  - Synchronize the local time with the NTP servers in France
+  - Synchronize the local time with the pool.ntp.org servers

@@ -13,6 +13,7 @@ dpkg-divert --remove --package mylinux-base --divert /etc/issue.backup --rename 
 dpkg-divert --remove --package mylinux-base --divert /etc/motd.backup --rename /etc/motd
 dpkg-divert --remove --package mylinux-base --divert /etc/bash.bashrc.backup --rename /etc/bash.bashrc
 dpkg-divert --remove --package mylinux-base --divert /etc/skel/.bashrc.backup --rename /etc/skel/.bashrc
+dpkg-divert --remove --package mylinux-base --divert /etc/chrony/chrony.conf.backup --rename /etc/chrony/chrony.conf
 
 # Restore root's .bashrc files
 if [ ! -e /root/.bashrc ] && [ -e /root/.bashrc.backup ]; then
