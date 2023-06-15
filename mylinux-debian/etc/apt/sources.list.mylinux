@@ -1,11 +1,11 @@
 # Debian
-deb http://ftp.fr.debian.org/debian buster main contrib non-free
+deb http://ftp.fr.debian.org/debian bookworm main contrib non-free-firmware
 
 # Updates
-deb http://ftp.fr.debian.org/debian buster-updates main contrib non-free
+deb http://ftp.fr.debian.org/debian bookworm-updates main contrib non-free-firmware
 
 # Backports
-deb http://ftp.fr.debian.org/debian buster-backports main contrib non-free
+deb http://ftp.fr.debian.org/debian bookworm-backports main contrib non-free-firmware
 
 # Security
-deb http://security.debian.org buster/updates main contrib non-free
+deb http://ftp.fr.debian.org/debian-security bookworm-security main contrib non-free-firmware
