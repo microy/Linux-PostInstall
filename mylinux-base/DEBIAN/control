@@ -1,9 +1,9 @@
 Package: mylinux-base
-Version: 1.6
+Version: 1.7
 Section: admin
 Priority: optional
 Architecture: all
-Depends: base-files, bash, nano, sudo, systemd
+Depends: base-files, bash, chrony, nano, sudo
 Maintainer: Michaël Roy <microygh@gmail.com>
 Description: Custom Linux configuration
  - Banners :
@@ -18,5 +18,5 @@ Description: Custom Linux configuration
   - Keep SSH_TTY environment variable in sudo (for the fancy prompt)
  - Nano :
   - Syntax highlighting for conf files
- - Systemd :
+ - Chrony :
   - Synchronize the local time with the NTP servers in France

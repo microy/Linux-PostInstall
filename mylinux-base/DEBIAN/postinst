@@ -35,4 +35,3 @@ mkdir -v /etc/bashrc.d || true
 
 # Active and restart the NTP client service
 timedatectl set-ntp true
-systemctl restart systemd-timesyncd.service
