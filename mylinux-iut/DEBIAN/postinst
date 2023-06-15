@@ -6,11 +6,3 @@ set -e
 # Configure system banners
 dpkg-divert --add --package mylinux-iut --divert /etc/issue.net.backup --rename /etc/issue.net
 /usr/sbin/mylinux-iut-update-banner
-
-
-# Disable the CNTLM service
-systemctl stop cntlm
-systemctl disable cntlm
-
-# Restart the NTP client service
-systemctl restart systemd-timesyncd.service
