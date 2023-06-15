@@ -7,6 +7,7 @@ set -e
 [ -L /etc/issue ] && rm -fv /etc/issue
 [ -L /etc/motd ] && rm -fv /etc/motd
 [ -L /etc/bash.bashrc ] && rm -fv /etc/bash.bashrc
+rm -fv /etc/chrony/chrony.conf
 
 # Restore the previous configuration
 dpkg-divert --remove --package mylinux-base --divert /etc/issue.backup --rename /etc/issue

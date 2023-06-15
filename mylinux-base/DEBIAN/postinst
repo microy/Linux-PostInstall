@@ -38,5 +38,6 @@ mkdir -v /etc/bashrc.d || true
 timedatectl set-ntp true
 
 # Change chrony NTP sources
+cp /etc/chrony/chrony.conf.backup /etc/chrony/chrony.conf
 sed -i 's/^pool/#pool/' chrony.conf
 chronyc reload sources
