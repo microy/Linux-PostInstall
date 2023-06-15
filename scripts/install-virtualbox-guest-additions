@@ -1,10 +1,10 @@
 #! /bin/sh
 
 # Install VirtualBox guest additions
-#apt install --yes --install-recommends dkms linux-headers-amd64 build-essential
-#mount /media/cdrom
-#cd /media/cdrom
-#sh ./VBoxLinuxAdditions.run
+apt install dkms linux-headers-amd64 build-essential libxt6 libxmu6
+mount /dev/cdrom /mnt
+cd /mnt
+sh ./VBoxLinuxAdditions.run --nox11
 
-apt install --yes virtualbox-guest-dkms
+#apt install --yes virtualbox-guest-dkms
 #apt install --yes virtualbox-guest-x11
