@@ -1,8 +1,8 @@
 Package: mylinux-iut
-Version: 1.2
+Version: 1.3
 Section: admin
 Priority: optional
 Architecture: all
-Depends: mylinux-base, cntlm
+Depends: mylinux-base
 Maintainer: Michaël Roy <microygh@gmail.com>
 Description: Custom configuration for IUT
